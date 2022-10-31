@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(240, 245, 249);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-loading{
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  position: relative;
+  margin: auto;
+  margin-top: 50px;
+  }
+.innercircle{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  
+  animation: spin var(--duration-time) ease-in-out infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.circle1{
+  border-top-color:lightblue ;
+  --duration-time:1s
+}
+.circle2{
+  border-left-color:lightgreen ;
+  --duration-time:1.2s
+}
+.circle3{
+  border-right-color:lightcoral ;
+  --duration-time:0.8s
+}
+
+.loading{
+  opacity: 1;
+  font-weight: bold;
+  animation: load 1s ease-in-out infinite;
+}
+@keyframes spin{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
   }
 }
+@keyframes load{
+  0%{
+    opacity: 0;
+    font-size: 24px;
+    color: blue;
+  }
+  100%{
+    opacity: 1;
+    font-weight: 48px;
+    color:greenyellow ;
+  }
+}
+/*--------------------------------------------------*/
+.main{
+  margin:50px;
+  
+}
+.title{
+  font-size: 2em;
+  text-align: center;
+}
+.underline{
+  height: 8px;
+  width: 200px;
+  background-color: aqua;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 50px;
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.tours{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.single-tour{
+  height: 600px;
+  width: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:start;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.single-tour img{
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+.tour-price{
+  color: rgb(75, 149, 203);
+  background-color: #EAF8FF;
+  padding: 3px;
+  border-radius: 5px;
+}
+.tour-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:20px 5px;
+}
+p.info{
+  text-align: justify;
+  text-indent: 20px;
+  margin: 20px 10px;
+}
+.show-more-btn{
+  border: none;
+  background-color: white;
+  color: rgb(109, 170, 214);
+  font-size: 1em;
+}
+button.delete{
+  display: block;
+  margin: auto;
+  width: 100px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid rgb(114, 9, 9);
+  border-radius: 5px;
+  color: rgb(114, 9, 9);
 }
